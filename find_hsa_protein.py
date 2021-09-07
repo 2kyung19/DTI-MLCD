@@ -22,8 +22,8 @@ def find_protein(hsa_list,dataset='NR'):
             print(hsa_id)
             continue
             
-        for h in hsa:
-            df = df.append({'hsa_id':hsa_id,'protein':h},ignore_index=True)
+        #for h in hsa:
+        df = df.append({'hsa_id':hsa_id,'protein':hsa[0]},ignore_index=True)
 
     return df,error
 

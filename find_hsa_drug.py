@@ -10,9 +10,9 @@ for dataset in ['E','NR','IC','GPCR']:
     data = data.append(file,ignore_index=True)
 data.drop_duplicates(keep='first',inplace=True)
 
-for i in range(0,3):
+for i in range(0,1):
     result = pd.DataFrame()
-    file = pd.read_csv(f'./data/{set[i]}_find_data.csv')
+    file = pd.read_csv(f'./data/hsa_id_protein.csv')
     
     for j in range(0,len(file)):
         hsa = file.loc[j,'hsa_id']
@@ -23,4 +23,4 @@ for i in range(0,3):
 
         result = result.append(find.loc[:,['drug_id','protein']],ignore_index=True)
 
-    result.to_csv(f'./data/{set[i]}_drug_protein.csv',index=False)
+    result.to_csv(f'./data/drug_protein.csv',index=False)
