@@ -14,13 +14,8 @@ for i in range(0,15):
 data = df
 data.insert(len(data.columns),'sum',list(data.iloc[:,1:].sum(axis=1)),True)
 
-data = data.loc[data['sum'] > 0] # drop single class
+data = data.loc[data['sum'] > 0] # drop sum 0 class
 data = data.iloc[:,:len(data.columns)-1]
     
 data.to_csv('./data/multi_class_top_10.csv',index=False)
-
-#for i in range(0,len(col_sum)):
-#    if (col_sum[i]==0):
-#        col = list(data.columns)[i+1]
-#        result = result.drop(columns=[col],axis=1)
 
